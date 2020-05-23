@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`crypto key 1`] = `
+Object {
+  "data": Array [
+    68,
+    209,
+    101,
+    177,
+    99,
+    159,
+    249,
+    4,
+    206,
+    100,
+    155,
+    236,
+    50,
+    106,
+    139,
+    148,
+  ],
+  "type": "Buffer",
+}
+`;
+
+exports[`crypto key 2`] = `"RNFlsWOf-QTOZJvsMmqLlA"`;
