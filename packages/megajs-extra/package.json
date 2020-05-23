@@ -1,6 +1,6 @@
 {
   "name": "megajs-extra",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-mega/tree/master/packages/megajs-extra#readme",
   "bugs": {
@@ -32,6 +32,5 @@
   "dependencies": {
     "@types/megajs": "^0.14.1",
     "megajs": "^0.17.0"
-  },
-  "devDependencies": {}
+  }
 }
