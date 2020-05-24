@@ -37,5 +37,6 @@
     "@types/megajs": "^0.14.1",
     "mega-nz-base64-key": "^1.0.1",
     "megajs": "^0.17.0"
-  }
+  },
+  "gitHead": "b06ae17b44086fbdb5f76d2b01d21b4617cd756d"
 }
