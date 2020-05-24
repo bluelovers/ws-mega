@@ -4,25 +4,18 @@
 
 import { File } from 'megajs';
 import { IFile, IFileChildren } from './types';
+import { stringify } from 'mega-nz-base64-key';
 
 export const SymCryptoKey = Symbol.for('root_key');
 
-export function e64(buffer: Buffer)
+export function megaKeyBufferFromFile(file: IFile | IFileChildren)
 {
-	return buffer.toString('base64')
-		.replace(/\+/g, '-')
-		.replace(/\//g, '_')
-		.replace(/=/g, '')
-}
-
-export function d64(key: string)
-{
-	return Buffer.from(key, 'base64')
+	return file[SymCryptoKey] ?? file.key
 }
 
 export function megaKeyFromFile(file: IFile | IFileChildren)
 {
-	return e64(file[SymCryptoKey] ?? file.key)
+	return stringify(megaKeyBufferFromFile(file))
 }
 
 export function megaLinkFromFile(file: IFile | IFileChildren, rootFile: IFile | IFileChildren, options?: {

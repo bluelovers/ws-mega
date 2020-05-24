@@ -3,22 +3,16 @@
  * Created by user on 2020/5/24.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.megaFileList = exports.megaLinkFromFile = exports.megaKeyFromFile = exports.d64 = exports.e64 = exports.SymCryptoKey = void 0;
+exports.megaFileList = exports.megaLinkFromFile = exports.megaKeyFromFile = exports.megaKeyBufferFromFile = exports.SymCryptoKey = void 0;
+const mega_nz_base64_key_1 = require("mega-nz-base64-key");
 exports.SymCryptoKey = Symbol.for('root_key');
-function e64(buffer) {
-    return buffer.toString('base64')
-        .replace(/\+/g, '-')
-        .replace(/\//g, '_')
-        .replace(/=/g, '');
-}
-exports.e64 = e64;
-function d64(key) {
-    return Buffer.from(key, 'base64');
-}
-exports.d64 = d64;
-function megaKeyFromFile(file) {
+function megaKeyBufferFromFile(file) {
     var _a;
-    return e64((_a = file[exports.SymCryptoKey]) !== null && _a !== void 0 ? _a : file.key);
+    return (_a = file[exports.SymCryptoKey]) !== null && _a !== void 0 ? _a : file.key;
+}
+exports.megaKeyBufferFromFile = megaKeyBufferFromFile;
+function megaKeyFromFile(file) {
+    return mega_nz_base64_key_1.stringify(megaKeyBufferFromFile(file));
 }
 exports.megaKeyFromFile = megaKeyFromFile;
 function megaLinkFromFile(file, rootFile, options) {

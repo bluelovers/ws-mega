@@ -4,8 +4,9 @@
 
 import { Readable } from "stream";
 import mega, { File, FileOptions, DownloadOptions } from 'megajs'
-import { megaKeyFromFile, d64, SymCryptoKey, megaFileList } from './lib/util';
+import { megaKeyFromFile, SymCryptoKey, megaFileList } from './lib/util';
 import { IFile, IFileChildren } from './lib/types';
+import { parse } from 'mega-nz-base64-key';
 
 export * from 'megajs'
 
@@ -19,7 +20,7 @@ export function fromURL(options: FileOptions | string): IFile
 {
 	const file = _fromURL(options) as any as IFile
 
-	file[SymCryptoKey] = d64(megaKeyFromFile(file));
+	file[SymCryptoKey] = parse(megaKeyFromFile(file));
 
 	return file as any
 }

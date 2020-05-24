@@ -4,8 +4,7 @@
 /// <reference types="node" />
 import { IFile, IFileChildren } from './types';
 export declare const SymCryptoKey: unique symbol;
-export declare function e64(buffer: Buffer): string;
-export declare function d64(key: string): Buffer;
+export declare function megaKeyBufferFromFile(file: IFile | IFileChildren): Buffer;
 export declare function megaKeyFromFile(file: IFile | IFileChildren): string;
 export declare function megaLinkFromFile(file: IFile | IFileChildren, rootFile: IFile | IFileChildren, options?: {
     gateway?: string;
