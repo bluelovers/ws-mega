@@ -1,5 +1,5 @@
 {
-  "name": "mega-nz-base64-key",
+  "name": "mega-nz-key",
   "version": "1.0.4",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-mega/tree/master/packages/mega-nz-base64-key#readme",
@@ -35,5 +35,5 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
-  "gitHead": "b06ae17b44086fbdb5f76d2b01d21b4617cd756d"
+  "gitHead": "5d5bc4f8487820fed2a8a16684a7b3aeb853c9a6"
 }

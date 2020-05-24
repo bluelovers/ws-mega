@@ -35,8 +35,8 @@
   },
   "dependencies": {
     "@types/megajs": "^0.14.1",
-    "mega-nz-base64-key": "^1.0.4",
+    "mega-nz-key": "^1.0.4",
     "megajs": "^0.17.0"
   },
-  "gitHead": "b06ae17b44086fbdb5f76d2b01d21b4617cd756d"
+  "gitHead": "5d5bc4f8487820fed2a8a16684a7b3aeb853c9a6"
 }
