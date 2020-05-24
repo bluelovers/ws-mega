@@ -3,22 +3,22 @@
  */
 
 import { File } from 'megajs';
-import { IFile, IFileChildren } from './types';
+import { IFile, IFileChildren, IFileLike } from './types';
 import { stringify } from 'mega-nz-key';
 
 export const SymCryptoKey = Symbol.for('root_key');
 
-export function megaKeyBufferFromFile(file: IFile | IFileChildren): Buffer
+export function megaKeyBufferFromFile(file: IFileLike): Buffer
 {
 	return file[SymCryptoKey] ?? file.key
 }
 
-export function megaKeyFromFile(file: IFile | IFileChildren): string
+export function megaKeyFromFile(file: IFileLike): string
 {
 	return stringify(megaKeyBufferFromFile(file))
 }
 
-export function megaLinkFromFile(file: IFile | IFileChildren, rootFile: IFile | IFileChildren, options?: {
+export function megaLinkFromFile(file: IFileLike, rootFile: IFileLike, options?: {
 	gateway?: string,
 })
 {
@@ -41,7 +41,7 @@ export function megaLinkFromFile(file: IFile | IFileChildren, rootFile: IFile | 
 		: `file`)}/${rootFile.downloadId}#${topkey}/${(file.directory ? `folder` : `file`)}/${downloadId}`).href
 }
 
-export function megaFileList(file: IFile | IFileChildren, options?: {
+export function megaFileList(file: IFileLike, options?: {
 	rootPath?: string,
 	map?: Record<string, IFile | IFileChildren>,
 	children?: boolean,
@@ -52,6 +52,7 @@ export function megaFileList(file: IFile | IFileChildren, options?: {
 
 	if (!file.directory)
 	{
+		// @ts-ignore
 		map[rootPath] = file;
 	}
 	else

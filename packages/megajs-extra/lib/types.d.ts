@@ -30,4 +30,5 @@ declare class File2 extends File {
 }
 export declare type IFileChildren = FileChildren;
 export declare type IFile = File2;
+export declare type IFileLike = IFile | IFileChildren | File;
 export {};

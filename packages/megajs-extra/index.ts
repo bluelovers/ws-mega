@@ -5,12 +5,12 @@
 import { Readable } from "stream";
 import mega, { File, FileOptions, DownloadOptions } from 'megajs'
 import { megaKeyFromFile, SymCryptoKey, megaFileList } from './lib/util';
-import { IFile, IFileChildren } from './lib/types';
-import { parse } from 'mega-nz-base64-key';
+import { IFile, IFileChildren, IFileLike } from './lib/types';
+import { parse } from 'mega-nz-key';
 
 export * from 'megajs'
 
-export { IFile, IFileChildren }
+export { IFile, IFileChildren, IFileLike }
 
 export { megaKeyFromFile, megaFileList }
 

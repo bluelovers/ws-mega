@@ -2,14 +2,14 @@
  * Created by user on 2020/5/24.
  */
 /// <reference types="node" />
-import { IFile, IFileChildren } from './types';
+import { IFile, IFileChildren, IFileLike } from './types';
 export declare const SymCryptoKey: unique symbol;
-export declare function megaKeyBufferFromFile(file: IFile | IFileChildren): Buffer;
-export declare function megaKeyFromFile(file: IFile | IFileChildren): string;
-export declare function megaLinkFromFile(file: IFile | IFileChildren, rootFile: IFile | IFileChildren, options?: {
+export declare function megaKeyBufferFromFile(file: IFileLike): Buffer;
+export declare function megaKeyFromFile(file: IFileLike): string;
+export declare function megaLinkFromFile(file: IFileLike, rootFile: IFileLike, options?: {
     gateway?: string;
 }): string;
-export declare function megaFileList(file: IFile | IFileChildren, options?: {
+export declare function megaFileList(file: IFileLike, options?: {
     rootPath?: string;
     map?: Record<string, IFile | IFileChildren>;
     children?: boolean;

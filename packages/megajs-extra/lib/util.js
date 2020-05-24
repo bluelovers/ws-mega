@@ -36,6 +36,7 @@ function megaFileList(file, options) {
     let map = (options === null || options === void 0 ? void 0 : options.map) || {};
     let rootPath = ((_a = options === null || options === void 0 ? void 0 : options.rootPath) !== null && _a !== void 0 ? _a : '') + file.name;
     if (!file.directory) {
+        // @ts-ignore
         map[rootPath] = file;
     }
     else {

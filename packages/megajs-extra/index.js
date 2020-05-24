@@ -30,12 +30,12 @@ const megajs_1 = __importStar(require("megajs"));
 const util_1 = require("./lib/util");
 Object.defineProperty(exports, "megaKeyFromFile", { enumerable: true, get: function () { return util_1.megaKeyFromFile; } });
 Object.defineProperty(exports, "megaFileList", { enumerable: true, get: function () { return util_1.megaFileList; } });
-const mega_nz_base64_key_1 = require("mega-nz-base64-key");
+const mega_nz_key_1 = require("mega-nz-key");
 __exportStar(require("megajs"), exports);
 const _fromURL = megajs_1.File.fromURL;
 function fromURL(options) {
     const file = _fromURL(options);
-    file[util_1.SymCryptoKey] = mega_nz_base64_key_1.parse(util_1.megaKeyFromFile(file));
+    file[util_1.SymCryptoKey] = mega_nz_key_1.parse(util_1.megaKeyFromFile(file));
     return file;
 }
 exports.fromURL = fromURL;

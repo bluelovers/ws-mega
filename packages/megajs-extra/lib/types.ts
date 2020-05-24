@@ -53,3 +53,5 @@ declare class File2 extends File
 
 export type IFileChildren = FileChildren;
 export type IFile = File2;
+
+export type IFileLike = IFile | IFileChildren | File
