@@ -1,6 +1,6 @@
 {
   "name": "mega-nz-base64-key",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-mega/tree/master/packages/mega-nz-base64-key#readme",
   "bugs": {
@@ -34,6 +34,5 @@
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
-  },
-  "devDependencies": {}
+  }
 }
