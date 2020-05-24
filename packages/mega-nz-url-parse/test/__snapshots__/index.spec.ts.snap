@@ -36,3 +36,15 @@ Object {
   "url": "https://mega.nz/file/dw4DzZhJ#RNFlsWOf-QTOZJvsMmqLlA",
 }
 `;
+
+exports[`parseMegaLink 04 1`] = `
+Object {
+  "root": Object {
+    "directory": true,
+    "downloadID": "oc0XERqC",
+    "key": "btVvZob2293dfhmqLKddXA",
+    "loadedFile": undefined,
+  },
+  "url": "https://mega.nz/#F!oc0XERqC!btVvZob2293dfhmqLKddXA",
+}
+`;

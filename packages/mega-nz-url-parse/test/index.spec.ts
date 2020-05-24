@@ -38,3 +38,16 @@ test(`parseMegaLink 03`, () =>
 	expect(actual).toMatchSnapshot();
 
 });
+
+test(`parseMegaLink 04`, () =>
+{
+	let href = `https://mega.nz/#F!oc0XERqC!btVvZob2293dfhmqLKddXA`
+
+	let actual = parseMegaLink(href);
+	let expected;
+
+	//expect(actual).toStrictEqual(expected);
+	//expect(actual).toBeInstanceOf(Date);
+	expect(actual).toMatchSnapshot();
+
+});
