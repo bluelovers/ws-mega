@@ -5,6 +5,7 @@
 import { File } from 'megajs';
 import { IFile, IFileChildren, IFileLike } from './types';
 import { stringify } from 'mega-nz-key';
+import { extname } from "path";
 
 export const SymCryptoKey = Symbol.for('root_key');
 
@@ -66,6 +67,8 @@ export function megaFileList(file: IFileLike, options?: {
 			rootPath = '';
 		}
 
+		map[rootPath + (rootPath.endsWith('/') ? '' : '/')] = file as any;
+
 		file
 			.children
 			.forEach((file) =>
@@ -80,4 +83,17 @@ export function megaFileList(file: IFileLike, options?: {
 	}
 
 	return map;
+}
+
+export function filterFileList(listMap: Record<string, IFileLike>, cb: (filename, file) => boolean): [string, IFile | IFileChildren][]
+{
+	return Object.entries(listMap)
+		.reduce((map, [filename, file]) =>
+		{
+			if (cb(filename, file))
+			{
+				map.push([filename, file as any])
+			}
+			return map;
+		}, [] as [string, IFile | IFileChildren][])
 }

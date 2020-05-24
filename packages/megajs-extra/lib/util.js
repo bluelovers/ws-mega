@@ -3,7 +3,7 @@
  * Created by user on 2020/5/24.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.megaFileList = exports.megaLinkFromFile = exports.megaKeyFromFile = exports.megaKeyBufferFromFile = exports.SymCryptoKey = void 0;
+exports.filterFileList = exports.megaFileList = exports.megaLinkFromFile = exports.megaKeyFromFile = exports.megaKeyBufferFromFile = exports.SymCryptoKey = void 0;
 const mega_nz_key_1 = require("mega-nz-key");
 exports.SymCryptoKey = Symbol.for('root_key');
 function megaKeyBufferFromFile(file) {
@@ -46,6 +46,7 @@ function megaFileList(file, options) {
         else {
             rootPath = '';
         }
+        map[rootPath + (rootPath.endsWith('/') ? '' : '/')] = file;
         file
             .children
             .forEach((file) => {
@@ -59,4 +60,14 @@ function megaFileList(file, options) {
     return map;
 }
 exports.megaFileList = megaFileList;
+function filterFileList(listMap, cb) {
+    return Object.entries(listMap)
+        .reduce((map, [filename, file]) => {
+        if (cb(filename, file)) {
+            map.push([filename, file]);
+        }
+        return map;
+    }, []);
+}
+exports.filterFileList = filterFileList;
 //# sourceMappingURL=util.js.map
