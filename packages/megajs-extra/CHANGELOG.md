@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/bluelovers/ws-mega/compare/megajs-extra@1.0.5...megajs-extra@1.0.6) (2020-05-24)
+
+
+### Features
+
+* rename to mega-nz-key ([0e4dfd9](https://github.com/bluelovers/ws-mega/commit/0e4dfd9daa528c24efadf4924011e94f93b2ed1b))
+
+
+
+
+
 ## [1.0.5](https://github.com/bluelovers/ws-mega/compare/megajs-extra@1.0.4...megajs-extra@1.0.5) (2020-05-24)
 
 
