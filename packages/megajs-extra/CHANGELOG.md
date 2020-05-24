@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/bluelovers/ws-mega/compare/megajs-extra@1.0.6...megajs-extra@1.0.7) (2020-05-24)
+
+
+### Bug Fixes
+
+* type ([c60a26a](https://github.com/bluelovers/ws-mega/commit/c60a26af562ac1f3f12503b368d24b4226eb5b36))
+
+
+
+
+
 ## [1.0.6](https://github.com/bluelovers/ws-mega/compare/megajs-extra@1.0.5...megajs-extra@1.0.6) (2020-05-24)
 
 
