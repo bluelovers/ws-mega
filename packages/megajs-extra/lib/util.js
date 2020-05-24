@@ -4,7 +4,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.megaFileList = exports.megaLinkFromFile = exports.megaKeyFromFile = exports.megaKeyBufferFromFile = exports.SymCryptoKey = void 0;
-const mega_nz_base64_key_1 = require("mega-nz-base64-key");
+const mega_nz_key_1 = require("mega-nz-key");
 exports.SymCryptoKey = Symbol.for('root_key');
 function megaKeyBufferFromFile(file) {
     var _a;
@@ -12,7 +12,7 @@ function megaKeyBufferFromFile(file) {
 }
 exports.megaKeyBufferFromFile = megaKeyBufferFromFile;
 function megaKeyFromFile(file) {
-    return mega_nz_base64_key_1.stringify(megaKeyBufferFromFile(file));
+    return mega_nz_key_1.stringify(megaKeyBufferFromFile(file));
 }
 exports.megaKeyFromFile = megaKeyFromFile;
 function megaLinkFromFile(file, rootFile, options) {

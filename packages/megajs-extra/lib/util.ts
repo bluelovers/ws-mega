@@ -4,16 +4,16 @@
 
 import { File } from 'megajs';
 import { IFile, IFileChildren } from './types';
-import { stringify } from 'mega-nz-base64-key';
+import { stringify } from 'mega-nz-key';
 
 export const SymCryptoKey = Symbol.for('root_key');
 
-export function megaKeyBufferFromFile(file: IFile | IFileChildren)
+export function megaKeyBufferFromFile(file: IFile | IFileChildren): Buffer
 {
 	return file[SymCryptoKey] ?? file.key
 }
 
-export function megaKeyFromFile(file: IFile | IFileChildren)
+export function megaKeyFromFile(file: IFile | IFileChildren): string
 {
 	return stringify(megaKeyBufferFromFile(file))
 }
