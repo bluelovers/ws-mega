@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-mega/compare/megajs-extra@1.0.7...megajs-extra@1.0.8) (2020-05-24)
+
+
+### Features
+
+* filterFileList(listMap: Record<string, IFileLike>, cb: (filename, file) => boolean): [string, IFile | IFileChildren][] ([acf6922](https://github.com/bluelovers/ws-mega/commit/acf6922ace3899b95dd214567e54be351d89e29d))
+* fromURLExtra(options: FileOptions | string): Promise<IFile | IFileChildren> ([7b7e5e3](https://github.com/bluelovers/ws-mega/commit/7b7e5e3ba843df157357d2f7157f8f6903881b37))
+
+
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-mega/compare/megajs-extra@1.0.6...megajs-extra@1.0.7) (2020-05-24)
 
 
