@@ -48,35 +48,33 @@ export async function fromURLExtra(options: FileOptions | string): Promise<IFile
 
 	let api = fromURL(options)
 
+	let file = await new Promise<IFile | IFileChildren>((resolve, reject) => {
+		api.loadAttributes((err, file) => {
+
+			if (err)
+			{
+				reject(err)
+			}
+			else
+			{
+				resolve(file)
+			}
+		})
+	});
+
 	if (sub.downloadID)
 	{
-		let file = await new Promise<IFile | IFileChildren>((resolve, reject) => {
-			api.loadAttributes((err, file) => {
-
-				if (err)
-				{
-					reject(err)
-				}
-				else
-				{
-					resolve(file)
-				}
-			})
-		});
-
 		file = filterFileList(megaFileList(file), (filename, file) => {
 
 			const downloadId = Array.isArray(file.downloadId) ? file.downloadId[file.downloadId.length - 1] : file.downloadId
 
 			return downloadId === sub.downloadID
 		})[0][1];
-
-		file[SymCryptoKey] = api[SymCryptoKey];
-
-		return file
 	}
 
-	return api;
+	file[SymCryptoKey] = api[SymCryptoKey];
+
+	return file;
 }
 
 // @ts-ignore

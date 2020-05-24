@@ -53,25 +53,24 @@ async function fromURLExtra(options) {
         //console.dir(options)
     }
     let api = fromURL(options);
-    if (sub.downloadID) {
-        let file = await new Promise((resolve, reject) => {
-            api.loadAttributes((err, file) => {
-                if (err) {
-                    reject(err);
-                }
-                else {
-                    resolve(file);
-                }
-            });
+    let file = await new Promise((resolve, reject) => {
+        api.loadAttributes((err, file) => {
+            if (err) {
+                reject(err);
+            }
+            else {
+                resolve(file);
+            }
         });
+    });
+    if (sub.downloadID) {
         file = util_1.filterFileList(util_1.megaFileList(file), (filename, file) => {
             const downloadId = Array.isArray(file.downloadId) ? file.downloadId[file.downloadId.length - 1] : file.downloadId;
             return downloadId === sub.downloadID;
         })[0][1];
-        file[util_1.SymCryptoKey] = api[util_1.SymCryptoKey];
-        return file;
     }
-    return api;
+    file[util_1.SymCryptoKey] = api[util_1.SymCryptoKey];
+    return file;
 }
 exports.fromURLExtra = fromURLExtra;
 // @ts-ignore
