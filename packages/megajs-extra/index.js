@@ -41,7 +41,7 @@ function fromURL(options) {
     return file;
 }
 exports.fromURL = fromURL;
-async function fromURLExtra(options) {
+async function fromURLExtra(options, extraOptions) {
     let sub;
     if (typeof options === 'string') {
         let opts = mega_nz_url_parse_1.parseMegaLink(options);
@@ -53,6 +53,9 @@ async function fromURLExtra(options) {
         //console.dir(options)
     }
     let api = fromURL(options);
+    if (extraOptions === null || extraOptions === void 0 ? void 0 : extraOptions.proxy) {
+        util_1.applyProxySettings(api, extraOptions.proxy);
+    }
     let file = await new Promise((resolve, reject) => {
         api.loadAttributes((err, file) => {
             if (err) {
@@ -63,7 +66,7 @@ async function fromURLExtra(options) {
             }
         });
     });
-    if (sub.downloadID) {
+    if (sub === null || sub === void 0 ? void 0 : sub.downloadID) {
         file = util_1.filterFileList(util_1.megaFileList(file), (filename, file) => {
             const downloadId = Array.isArray(file.downloadId) ? file.downloadId[file.downloadId.length - 1] : file.downloadId;
             return downloadId === sub.downloadID;

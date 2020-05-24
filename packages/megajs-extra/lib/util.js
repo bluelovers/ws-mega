@@ -3,7 +3,7 @@
  * Created by user on 2020/5/24.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.filterFileList = exports.megaFileList = exports.megaLinkFromFile = exports.megaKeyFromFile = exports.megaKeyBufferFromFile = exports.SymCryptoKey = void 0;
+exports.applyProxySettingsCore = exports.applyProxySettings = exports.filterFileList = exports.megaFileList = exports.megaLinkFromFile = exports.megaKeyFromFile = exports.megaKeyBufferFromFile = exports.SymCryptoKey = void 0;
 const mega_nz_key_1 = require("mega-nz-key");
 exports.SymCryptoKey = Symbol.for('root_key');
 function megaKeyBufferFromFile(file) {
@@ -70,4 +70,17 @@ function filterFileList(listMap, cb) {
     }, []);
 }
 exports.filterFileList = filterFileList;
+function applyProxySettings(file, proxy) {
+    // @ts-ignore
+    applyProxySettingsCore(file.api);
+    return file;
+}
+exports.applyProxySettings = applyProxySettings;
+function applyProxySettingsCore(api, proxy) {
+    if (proxy) {
+        api.requestModule = api.requestModule.defaults({ proxy });
+    }
+    return api;
+}
+exports.applyProxySettingsCore = applyProxySettingsCore;
 //# sourceMappingURL=util.js.map

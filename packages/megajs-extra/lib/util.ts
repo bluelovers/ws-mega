@@ -97,3 +97,17 @@ export function filterFileList(listMap: Record<string, IFileLike>, cb: (filename
 			return map;
 		}, [] as [string, IFile | IFileChildren][])
 }
+
+export function applyProxySettings (file, proxy) {
+	// @ts-ignore
+	applyProxySettingsCore(file.api);
+	return file
+}
+
+export function applyProxySettingsCore (api, proxy) {
+	if (proxy) {
+		api.requestModule = api.requestModule.defaults({ proxy })
+	}
+
+	return api
+}

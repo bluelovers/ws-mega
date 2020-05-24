@@ -4,7 +4,7 @@
 
 import { Readable } from "stream";
 import mega, { File, FileOptions, DownloadOptions } from 'megajs'
-import { megaKeyFromFile, SymCryptoKey, megaFileList, filterFileList } from './lib/util';
+import { megaKeyFromFile, SymCryptoKey, megaFileList, filterFileList, applyProxySettings } from './lib/util';
 import { IFile, IFileChildren, IFileLike } from './lib/types';
 import { parse } from 'mega-nz-key';
 import { parseMegaLink, IParseMegaLinkSub } from 'mega-nz-url-parse';
@@ -28,7 +28,9 @@ export function fromURL(options: FileOptions | string): IFile
 	return file as any
 }
 
-export async function fromURLExtra(options: FileOptions | string): Promise<IFile | IFileChildren>
+export async function fromURLExtra(options: FileOptions | string, extraOptions?: {
+	proxy?,
+}): Promise<IFile | IFileChildren>
 {
 	let sub: IParseMegaLinkSub;
 
@@ -48,8 +50,15 @@ export async function fromURLExtra(options: FileOptions | string): Promise<IFile
 
 	let api = fromURL(options)
 
-	let file = await new Promise<IFile | IFileChildren>((resolve, reject) => {
-		api.loadAttributes((err, file) => {
+	if (extraOptions?.proxy)
+	{
+		applyProxySettings(api, extraOptions.proxy)
+	}
+
+	let file = await new Promise<IFile | IFileChildren>((resolve, reject) =>
+	{
+		api.loadAttributes((err, file) =>
+		{
 
 			if (err)
 			{
@@ -62,9 +71,10 @@ export async function fromURLExtra(options: FileOptions | string): Promise<IFile
 		})
 	});
 
-	if (sub.downloadID)
+	if (sub?.downloadID)
 	{
-		file = filterFileList(megaFileList(file), (filename, file) => {
+		file = filterFileList(megaFileList(file), (filename, file) =>
+		{
 
 			const downloadId = Array.isArray(file.downloadId) ? file.downloadId[file.downloadId.length - 1] : file.downloadId
 

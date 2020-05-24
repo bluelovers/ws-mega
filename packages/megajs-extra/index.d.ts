@@ -8,5 +8,7 @@ export * from 'megajs';
 export { IFile, IFileChildren, IFileLike };
 export { megaKeyFromFile, megaFileList };
 export declare function fromURL(options: FileOptions | string): IFile;
-export declare function fromURLExtra(options: FileOptions | string): Promise<IFile | IFileChildren>;
+export declare function fromURLExtra(options: FileOptions | string, extraOptions?: {
+    proxy?: any;
+}): Promise<IFile | IFileChildren>;
 export default mega;

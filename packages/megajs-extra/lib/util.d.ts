@@ -15,3 +15,5 @@ export declare function megaFileList(file: IFileLike, options?: {
     children?: boolean;
 }): Record<string, IFile | IFileChildren>;
 export declare function filterFileList(listMap: Record<string, IFileLike>, cb: (filename: string, file: IFile | IFileChildren) => boolean): [string, IFile | IFileChildren][];
+export declare function applyProxySettings(file: any, proxy: any): any;
+export declare function applyProxySettingsCore(api: any, proxy: any): any;
