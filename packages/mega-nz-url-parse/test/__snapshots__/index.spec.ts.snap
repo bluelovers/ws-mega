@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parseMegaLink 01 1`] = `
+Object {
+  "root": Object {
+    "directory": true,
+    "downloadID": "dw4DzZhJ",
+    "key": "RNFlsWOf-QTOZJvsMmqLlA",
+  },
+  "sub": Object {
+    "directory": false,
+    "downloadID": "5hBUQarQ",
+  },
+  "url": "https://mega.nz/folder/dw4DzZhJ#RNFlsWOf-QTOZJvsMmqLlA/file/5hBUQarQ",
+}
+`;
+
+exports[`parseMegaLink 02 1`] = `
+Object {
+  "root": Object {
+    "directory": true,
+    "downloadID": "dw4DzZhJ",
+    "key": "RNFlsWOf-QTOZJvsMmqLlA",
+  },
+  "url": "https://mega.nz/folder/dw4DzZhJ#RNFlsWOf-QTOZJvsMmqLlA",
+}
+`;
+
+exports[`parseMegaLink 03 1`] = `
+Object {
+  "root": Object {
+    "directory": false,
+    "downloadID": "dw4DzZhJ",
+    "key": "RNFlsWOf-QTOZJvsMmqLlA",
+  },
+  "url": "https://mega.nz/file/dw4DzZhJ#RNFlsWOf-QTOZJvsMmqLlA",
+}
+`;
