@@ -85,12 +85,12 @@ export function megaFileList(file: IFileLike, options?: {
 	return map;
 }
 
-export function filterFileList(listMap: Record<string, IFileLike>, cb: (filename, file) => boolean): [string, IFile | IFileChildren][]
+export function filterFileList(listMap: Record<string, IFileLike>, cb: (filename: string, file: IFile | IFileChildren) => boolean): [string, IFile | IFileChildren][]
 {
 	return Object.entries(listMap)
 		.reduce((map, [filename, file]) =>
 		{
-			if (cb(filename, file))
+			if (cb(filename, file as any))
 			{
 				map.push([filename, file as any])
 			}

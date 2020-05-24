@@ -34,8 +34,9 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@types/megajs": "^0.14.1",
+    "@types/megajs": "*",
     "mega-nz-key": "^1.0.5",
+    "mega-nz-url-parse": "^1.0.0",
     "megajs": "^0.17.0"
   },
   "gitHead": "5d5bc4f8487820fed2a8a16684a7b3aeb853c9a6"

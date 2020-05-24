@@ -14,4 +14,4 @@ export declare function megaFileList(file: IFileLike, options?: {
     map?: Record<string, IFile | IFileChildren>;
     children?: boolean;
 }): Record<string, IFile | IFileChildren>;
-export declare function filterFileList(listMap: Record<string, IFileLike>, cb: (filename: any, file: any) => boolean): [string, IFile | IFileChildren][];
+export declare function filterFileList(listMap: Record<string, IFileLike>, cb: (filename: string, file: IFile | IFileChildren) => boolean): [string, IFile | IFileChildren][];

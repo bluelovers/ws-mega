@@ -10,9 +10,8 @@ const defaultHostname = [
 	'mega.co.nz',
 ]
 
-export function parseMegaLink(link: string | URL | LazyURL, options?: {
-	hostname?: string[],
-}): {
+export interface IParseMegaLink
+{
 	url: LazyURL;
 	root: {
 		key: string;
@@ -20,11 +19,18 @@ export function parseMegaLink(link: string | URL | LazyURL, options?: {
 		downloadID: string;
 		loadedFile?: string;
 	};
-	sub?: {
-		directory: boolean;
-		downloadID: string;
-	};
+	sub?: IParseMegaLinkSub;
 }
+
+export interface IParseMegaLinkSub
+{
+	directory: boolean;
+	downloadID: string;
+}
+
+export function parseMegaLink(link: string | URL | LazyURL, options?: {
+	hostname?: string[],
+}): IParseMegaLink
 {
 	options = options ?? {};
 
