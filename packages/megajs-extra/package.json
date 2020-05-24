@@ -1,6 +1,6 @@
 {
   "name": "megajs-extra",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "keywords": [
     "mega",
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@types/megajs": "^0.14.1",
-    "mega-nz-base64-key": "^1.0.1",
+    "mega-nz-base64-key": "^1.0.2",
     "megajs": "^0.17.0"
   },
   "gitHead": "b06ae17b44086fbdb5f76d2b01d21b4617cd756d"
