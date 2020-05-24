@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/bluelovers/ws-mega/compare/megajs-extra@1.0.8...megajs-extra@1.0.9) (2020-05-24)
+
+
+### Features
+
+* . ([e9fa009](https://github.com/bluelovers/ws-mega/commit/e9fa00991da7ae6edb069f5881b4008986f59d9d))
+* support proxy ([5cebea7](https://github.com/bluelovers/ws-mega/commit/5cebea79483dac993fcc1b1f508aea96f0069926))
+
+
+
+
+
 ## [1.0.8](https://github.com/bluelovers/ws-mega/compare/megajs-extra@1.0.7...megajs-extra@1.0.8) (2020-05-24)
 
 
