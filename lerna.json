@@ -25,6 +25,10 @@
     },
     "exec": {
       "stream": true
+    },
+    "version": {
+      "conventionalCommits": true,
+      "changelogPreset": "emojis"
     }
   },
   "npmClient": "yarn",
